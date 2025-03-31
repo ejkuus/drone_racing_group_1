@@ -1,0 +1,3 @@
+/home/eero/tello_ros_ws/build/tello_msgs/rosidl_adapter/tello_msgs:msg/FlightData.idl
+/home/eero/tello_ros_ws/build/tello_msgs/rosidl_adapter/tello_msgs:msg/TelloResponse.idl
+/home/eero/tello_ros_ws/build/tello_msgs/rosidl_adapter/tello_msgs:srv/TelloAction.idl

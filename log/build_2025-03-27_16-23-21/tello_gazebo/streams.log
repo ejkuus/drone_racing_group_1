@@ -1,0 +1,213 @@
+[0.018s] Invoking command in '/home/eero/tello_ros_ws/build/tello_gazebo': AMENT_PREFIX_PATH=/home/eero/tello_ros_ws/install/tello_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eero/tello_ros_ws/install/tello_msgs:/home/eero/drone_racing_ros2_ws/install/tello_gazebo:/home/eero/drone_racing_ros2_ws/install/tello_driver:/home/eero/drone_racing_ros2_ws/install/tello_msgs:/home/eero/drone_racing_ros2_ws/install/tello_description:/home/eero/drone_racing_ros2_ws/install/ros2_shared:/opt/ros/galactic LD_LIBRARY_PATH=/home/eero/tello_ros_ws/install/tello_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eero/tello_ros_ws/install/tello_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake /home/eero/tello_ros_ws/src/tello_ros/tello_gazebo -DCMAKE_INSTALL_PREFIX=/home/eero/tello_ros_ws/install/tello_gazebo
+[0.086s] -- The C compiler identification is GNU 9.4.0
+[0.152s] -- The CXX compiler identification is GNU 9.4.0
+[0.160s] -- Check for working C compiler: /usr/bin/cc
+[0.239s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.241s] -- Detecting C compiler ABI info
+[0.324s] -- Detecting C compiler ABI info - done
+[0.341s] -- Detecting C compile features
+[0.341s] -- Detecting C compile features - done
+[0.343s] -- Check for working CXX compiler: /usr/bin/c++
+[0.445s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.447s] -- Detecting CXX compiler ABI info
+[0.551s] -- Detecting CXX compiler ABI info - done
+[0.566s] -- Detecting CXX compile features
+[0.567s] -- Detecting CXX compile features - done
+[0.568s] -- Found ament_cmake: 1.1.6 (/opt/ros/galactic/share/ament_cmake/cmake)
+[0.596s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.596s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.680s] -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.1") 
+[0.685s] -- Checking for module 'bullet>=2.82'
+[0.708s] --   Found bullet, version 2.88
+[0.874s] -- Found ccd: /usr/include (found suitable version "2.0", minimum required is "2.0") 
+[0.970s] -- Found fcl: /usr/include (found suitable version "0.5.0", minimum required is "0.3.2") 
+[1.050s] -- Found assimp: /usr/include (found version "5.0.0") 
+[1.079s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[1.450s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake (found suitable version "1.71.0", minimum required is "1.40.0") found components: thread system filesystem program_options regex iostreams date_time 
+[1.474s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "3.6.1") 
+[1.482s] -- Looking for ignition-math6 -- found version 6.15.1
+[1.490s] -- Searching for dependencies of ignition-math6
+[1.491s] -- Looking for OGRE...
+[1.492s] -- OGRE_PREFIX_WATCH changed.
+[1.498s] -- Checking for module 'OGRE'
+[1.525s] --   Found OGRE, version 1.9.0
+[1.596s] -- Found Ogre Ghadamon (1.9.0)
+[1.604s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[1.613s] -- Looking for OGRE_Paging...
+[1.618s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[1.619s] -- Looking for OGRE_Terrain...
+[1.625s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[1.625s] -- Looking for OGRE_Property...
+[1.631s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[1.631s] -- Looking for OGRE_RTShaderSystem...
+[1.636s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[1.636s] -- Looking for OGRE_Volume...
+[1.642s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[1.642s] -- Looking for OGRE_Overlay...
+[1.647s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[1.752s] -- Looking for ignition-math6 -- found version 6.15.1
+[1.754s] -- Looking for ignition-transport8 -- found version 8.5.1
+[1.754s] -- Searching for dependencies of ignition-transport8
+[1.790s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[1.794s] -- Checking for module 'libzmq >= 4'
+[1.822s] --   Found libzmq , version 4.3.2
+[1.891s] -- Found ZeroMQ: TRUE (Required is at least version "4") 
+[1.896s] -- Checking for module 'uuid'
+[1.924s] --   Found uuid, version 2.34.0
+[1.986s] -- Found UUID: TRUE  
+[1.989s] -- Looking for ignition-msgs5 -- found version 5.11.1
+[1.989s] -- Searching for dependencies of ignition-msgs5
+[2.010s] -- Looking for ignition-math6 -- found version 6.15.1
+[2.017s] -- Checking for module 'tinyxml2'
+[2.033s] --   Found tinyxml2, version 6.2.0
+[2.085s] -- Looking for ignition-msgs5 -- found version 5.11.1
+[2.087s] -- Looking for ignition-common3 -- found version 3.17.1
+[2.087s] -- Searching for dependencies of ignition-common3
+[2.088s] -- Looking for dlfcn.h - found
+[2.089s] -- Looking for libdl - found
+[2.092s] -- Found DL: TRUE  
+[2.102s] -- Searching for <ignition-common3> component [graphics]
+[2.103s] -- Looking for ignition-common3-graphics -- found version 3.17.1
+[2.104s] -- Searching for dependencies of ignition-common3-graphics
+[2.104s] -- Looking for ignition-math6 -- found version 6.15.1
+[2.108s] -- Looking for ignition-fuel_tools4 -- found version 4.9.2
+[2.108s] -- Searching for dependencies of ignition-fuel_tools4
+[2.407s] -- Found CURL: /usr/lib/x86_64-linux-gnu/libcurl.so (found version "7.68.0")  
+[2.429s] -- Checking for module 'jsoncpp'
+[2.516s] --   Found jsoncpp, version 1.7.4
+[2.771s] -- Found JSONCPP: TRUE  
+[2.797s] -- Checking for module 'libzip'
+[2.877s] --   Found libzip, version 1.5.1
+[3.140s] -- Found ZIP: TRUE  
+[3.141s] -- Looking for ignition-common3 -- found version 3.17.1
+[3.141s] -- Looking for ignition-math6 -- found version 6.15.1
+[3.141s] -- Looking for ignition-msgs5 -- found version 5.11.1
+[3.144s] -- Found gazebo_dev: 3.5.2 (/opt/ros/galactic/share/gazebo_dev/cmake)
+[3.144s] -- Gazebo version: 11.15
+[3.148s] -- Found gazebo_ros: 3.5.2 (/opt/ros/galactic/share/gazebo_ros/cmake)
+[3.237s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.256s] -- Found rosidl_adapter: 2.2.3 (/opt/ros/galactic/share/rosidl_adapter/cmake)
+[3.561s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[3.589s] -- Found FastRTPS: /opt/ros/galactic/include  
+[3.670s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.731s] -- Found rmw_implementation_cmake: 3.3.1 (/opt/ros/galactic/share/rmw_implementation_cmake/cmake)
+[3.735s] -- Found rmw_cyclonedds_cpp: 0.22.6 (/opt/ros/galactic/share/rmw_cyclonedds_cpp/cmake)
+[3.756s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[3.758s] -- Found Threads: TRUE  
+[3.992s] -- Found geometry_msgs: 2.2.4 (/opt/ros/galactic/share/geometry_msgs/cmake)
+[4.026s] -- Found sensor_msgs: 2.2.4 (/opt/ros/galactic/share/sensor_msgs/cmake)
+[4.094s] -- Found tello_msgs: 0.1.0 (/home/eero/tello_ros_ws/install/tello_msgs/share/tello_msgs/cmake)
+[4.289s] -- Configuring done
+[4.334s] -- Generating done
+[4.345s] -- Build files have been written to: /home/eero/tello_ros_ws/build/tello_gazebo
+[4.390s] Invoked command in '/home/eero/tello_ros_ws/build/tello_gazebo' returned '0': AMENT_PREFIX_PATH=/home/eero/tello_ros_ws/install/tello_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eero/tello_ros_ws/install/tello_msgs:/home/eero/drone_racing_ros2_ws/install/tello_gazebo:/home/eero/drone_racing_ros2_ws/install/tello_driver:/home/eero/drone_racing_ros2_ws/install/tello_msgs:/home/eero/drone_racing_ros2_ws/install/tello_description:/home/eero/drone_racing_ros2_ws/install/ros2_shared:/opt/ros/galactic LD_LIBRARY_PATH=/home/eero/tello_ros_ws/install/tello_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eero/tello_ros_ws/install/tello_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake /home/eero/tello_ros_ws/src/tello_ros/tello_gazebo -DCMAKE_INSTALL_PREFIX=/home/eero/tello_ros_ws/install/tello_gazebo
+[4.391s] Invoking command in '/home/eero/tello_ros_ws/build/tello_gazebo': AMENT_PREFIX_PATH=/home/eero/tello_ros_ws/install/tello_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eero/tello_ros_ws/install/tello_msgs:/home/eero/drone_racing_ros2_ws/install/tello_gazebo:/home/eero/drone_racing_ros2_ws/install/tello_driver:/home/eero/drone_racing_ros2_ws/install/tello_msgs:/home/eero/drone_racing_ros2_ws/install/tello_description:/home/eero/drone_racing_ros2_ws/install/ros2_shared:/opt/ros/galactic LD_LIBRARY_PATH=/home/eero/tello_ros_ws/install/tello_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eero/tello_ros_ws/install/tello_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/eero/tello_ros_ws/build/tello_gazebo -- -j6 -l6
+[4.545s] [35m[1mScanning dependencies of target TelloPlugin[0m
+[4.758s] [ 50%] [32mBuilding CXX object CMakeFiles/TelloPlugin.dir/src/tello_plugin.cpp.o[0m
+[24.575s] [100%] [32m[1mLinking CXX shared library libTelloPlugin.so[0m
+[25.506s] [100%] Built target TelloPlugin
+[25.524s] Invoked command in '/home/eero/tello_ros_ws/build/tello_gazebo' returned '0': AMENT_PREFIX_PATH=/home/eero/tello_ros_ws/install/tello_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eero/tello_ros_ws/install/tello_msgs:/home/eero/drone_racing_ros2_ws/install/tello_gazebo:/home/eero/drone_racing_ros2_ws/install/tello_driver:/home/eero/drone_racing_ros2_ws/install/tello_msgs:/home/eero/drone_racing_ros2_ws/install/tello_description:/home/eero/drone_racing_ros2_ws/install/ros2_shared:/opt/ros/galactic LD_LIBRARY_PATH=/home/eero/tello_ros_ws/install/tello_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eero/tello_ros_ws/install/tello_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/eero/tello_ros_ws/build/tello_gazebo -- -j6 -l6
+[25.528s] Invoking command in '/home/eero/tello_ros_ws/build/tello_gazebo': AMENT_PREFIX_PATH=/home/eero/tello_ros_ws/install/tello_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eero/tello_ros_ws/install/tello_msgs:/home/eero/drone_racing_ros2_ws/install/tello_gazebo:/home/eero/drone_racing_ros2_ws/install/tello_driver:/home/eero/drone_racing_ros2_ws/install/tello_msgs:/home/eero/drone_racing_ros2_ws/install/tello_description:/home/eero/drone_racing_ros2_ws/install/ros2_shared:/opt/ros/galactic LD_LIBRARY_PATH=/home/eero/tello_ros_ws/install/tello_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eero/tello_ros_ws/install/tello_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/eero/tello_ros_ws/build/tello_gazebo
+[25.542s] -- Install configuration: ""
+[25.542s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/lib/libTelloPlugin.so
+[25.547s] -- Set runtime path of "/home/eero/tello_ros_ws/install/tello_gazebo/lib/libTelloPlugin.so" to ""
+[25.547s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models
+[25.548s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_7
+[25.548s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_7/model.sdf
+[25.548s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_7/materials
+[25.548s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_7/materials/scripts
+[25.548s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_7/materials/scripts/marker_7.material
+[25.549s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_7/materials/textures
+[25.549s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_7/materials/textures/aruco_mark_7.png
+[25.549s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_7/materials/textures/aruco_mark_7.svg
+[25.549s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_7/model.config
+[25.550s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_2
+[25.550s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_2/model.sdf
+[25.550s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_2/materials
+[25.551s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_2/materials/scripts
+[25.551s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_2/materials/scripts/marker_2.material
+[25.551s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_2/materials/textures
+[25.551s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_2/materials/textures/aruco_mark_2.svg
+[25.551s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_2/materials/textures/aruco_mark_2.png
+[25.551s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_2/model.config
+[25.551s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_3
+[25.552s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_3/model.sdf
+[25.552s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_3/materials
+[25.552s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_3/materials/scripts
+[25.552s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_3/materials/scripts/marker_3.material
+[25.552s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_3/materials/textures
+[25.552s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_3/materials/textures/aruco_mark_3.svg
+[25.552s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_3/materials/textures/aruco_mark_3.png
+[25.553s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_3/model.config
+[25.553s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_6
+[25.553s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_6/model.sdf
+[25.553s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_6/materials
+[25.553s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_6/materials/scripts
+[25.553s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_6/materials/scripts/marker_6.material
+[25.554s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_6/materials/textures
+[25.554s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_6/materials/textures/aruco_mark_6.svg
+[25.554s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_6/materials/textures/aruco_mark_6.png
+[25.554s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_6/model.config
+[25.555s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_1
+[25.555s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_1/model.sdf
+[25.555s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_1/materials
+[25.555s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_1/materials/scripts
+[25.555s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_1/materials/scripts/marker_1.material
+[25.555s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_1/materials/textures
+[25.556s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_1/materials/textures/aruco_mark_1.png
+[25.557s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_1/materials/textures/aruco_mark_1.svg
+[25.557s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_1/model.config
+[25.557s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_5
+[25.558s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_5/model.sdf
+[25.558s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_5/materials
+[25.558s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_5/materials/scripts
+[25.558s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_5/materials/scripts/marker_5.material
+[25.558s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_5/materials/textures
+[25.558s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_5/materials/textures/aruco_mark_5.svg
+[25.558s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_5/materials/textures/aruco_mark_5.png
+[25.559s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_5/model.config
+[25.559s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_4
+[25.559s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_4/model.sdf
+[25.559s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_4/materials
+[25.559s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_4/materials/scripts
+[25.560s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_4/materials/scripts/marker_4.material
+[25.560s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_4/materials/textures
+[25.560s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_4/materials/textures/aruco_mark_4.svg
+[25.560s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_4/materials/textures/aruco_mark_4.png
+[25.560s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_4/model.config
+[25.561s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_0
+[25.561s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_0/model.sdf
+[25.561s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_0/materials
+[25.561s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_0/materials/scripts
+[25.561s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_0/materials/scripts/marker_0.material
+[25.561s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_0/materials/textures
+[25.561s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_0/materials/textures/aruco_mark_0.svg
+[25.562s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_0/materials/textures/aruco_mark_0.png
+[25.562s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/models/marker_0/model.config
+[25.562s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/worlds
+[25.562s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/worlds/fiducial_map.yaml
+[25.562s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/worlds/f2_map.yaml
+[25.562s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/worlds/simple.world
+[25.562s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/worlds/fiducial.world
+[25.562s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/worlds/f2.world
+[25.563s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/worlds/build_world.py
+[25.563s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/launch
+[25.563s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/launch/vlam_launch.py
+[25.563s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/launch/simple_launch.py
+[25.563s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/lib/tello_gazebo/inject_entity.py
+[25.563s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/ament_index/resource_index/package_run_dependencies/tello_gazebo
+[25.563s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/ament_index/resource_index/parent_prefix_path/tello_gazebo
+[25.563s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/environment/ament_prefix_path.sh
+[25.563s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/environment/ament_prefix_path.dsv
+[25.563s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/environment/path.sh
+[25.563s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/environment/path.dsv
+[25.564s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/local_setup.bash
+[25.564s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/local_setup.sh
+[25.564s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/local_setup.zsh
+[25.564s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/local_setup.dsv
+[25.564s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/package.dsv
+[25.564s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/ament_index/resource_index/packages/tello_gazebo
+[25.564s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/cmake/tello_gazeboConfig.cmake
+[25.564s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/cmake/tello_gazeboConfig-version.cmake
+[25.564s] -- Installing: /home/eero/tello_ros_ws/install/tello_gazebo/share/tello_gazebo/package.xml
+[25.564s] Invoked command in '/home/eero/tello_ros_ws/build/tello_gazebo' returned '0': AMENT_PREFIX_PATH=/home/eero/tello_ros_ws/install/tello_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eero/tello_ros_ws/install/tello_msgs:/home/eero/drone_racing_ros2_ws/install/tello_gazebo:/home/eero/drone_racing_ros2_ws/install/tello_driver:/home/eero/drone_racing_ros2_ws/install/tello_msgs:/home/eero/drone_racing_ros2_ws/install/tello_description:/home/eero/drone_racing_ros2_ws/install/ros2_shared:/opt/ros/galactic LD_LIBRARY_PATH=/home/eero/tello_ros_ws/install/tello_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eero/tello_ros_ws/install/tello_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/eero/tello_ros_ws/build/tello_gazebo
