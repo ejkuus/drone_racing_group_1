@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 from cv_bridge import CvBridge, CvBridgeError
 from sensor_msgs.msg import Image
-from rclpy.qos import QoSProfile, ReliabilityPolicy
+from rclpy.qos import QoSProfile, ReliabilityPolicy, DurabilityPolicy, HistoryPolicy
 from geometry_msgs.msg import Point
 
 
@@ -14,11 +14,15 @@ class LineObjective(Node):
     def __init__(self):
         super().__init__('line_objective_node')
         self.bridge_object = CvBridge()
-        qos_profile = QoSProfile(depth=10)
-        qos_profile.reliability = ReliabilityPolicy.BEST_EFFORT
+        qos_profile = QoSProfile(
+            reliability=ReliabilityPolicy.BEST_EFFORT,  # Updated to the new policy
+            durability=DurabilityPolicy.VOLATILE,  # Updated to the new policy
+            history=HistoryPolicy.KEEP_LAST,  # Updated to the new policy
+            depth=10  # Keep last 10 messages
+        )
 
         self.subscription = self.create_subscription(
-            Image,'/drone1/image_raw', self.camera_callback, qos_profile
+            Image,'/image_raw', self.camera_callback, qos_profile
 #             Image,'img_rviz', self.camera_callback, qos_profile
         )
 
@@ -27,6 +31,8 @@ class LineObjective(Node):
 
 
     def camera_callback(self, data):
+        self.get_logger().info("Testing callback")
+        
         try:
             cv_image = self.bridge_object.imgmsg_to_cv2(data)#, desired_encoding="bgr8")
         except CvBridgeError as e:
