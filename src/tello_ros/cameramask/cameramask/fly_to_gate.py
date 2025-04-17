@@ -45,6 +45,7 @@ class CenterAlignmentNode(Node):
         error_y = abs(msg.y - self.center_y)
 
         if error_x <= self.tolerance and error_y <= self.tolerance:
+            time.sleep(1)
             twist = Twist()
             twist.linear.x = self.forward_speed
             self.cmd_vel_pub.publish(twist)
