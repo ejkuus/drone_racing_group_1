@@ -15,7 +15,7 @@ class CenterAlignmentNode(Node):
         self.image_height = 720
         self.center_x = self.image_width / 2
         self.center_y = self.image_height / 2
-        self.tolerance = 20  # px
+        self.tolerance = 10  # px
 
         self.forward_speed = 0.1
         self.forward_duration_after_gate = 2.0  # sekuntia
