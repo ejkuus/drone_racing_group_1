@@ -40,7 +40,7 @@ class CenterAlignmentNode(Node):
         if error_x <= self.tolerance and error_y <= self.tolerance:
             # Portti on keskellä — lähetetään käsky eteenpäin
             twist = Twist()
-            twist.linear.x = 0.5  # Liiku eteenpäin
+            twist.linear.x = 0.1  # Liiku eteenpäin
             self.cmd_vel_pub.publish(twist)
             self.get_logger().info("Center aligned! Sent forward command.")
         else:
