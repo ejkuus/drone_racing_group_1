@@ -3,6 +3,7 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Point, Twist
 from rclpy.qos import QoSProfile, ReliabilityPolicy
+import time
 
 class CenterAlignmentNode(Node):
 
@@ -10,24 +11,18 @@ class CenterAlignmentNode(Node):
         super().__init__('center_alignment_node')
         self.get_logger().info("CenterAlignmentNode started")
 
-        # Kameraresoluutio ja toleranssi
         self.image_width = 960
         self.image_height = 720
         self.center_x = self.image_width / 2
         self.center_y = self.image_height / 2
-        self.tolerance = 20  # pikseliä
+        self.tolerance = 20  # px
 
-        # Lentoparametrit
-        self.forward_speed = 0.1  # m/s
-        self.k_t = 0.6            # eteenpäin lennettävä matka (metreinä)
+        self.forward_speed = 0.1
+        self.forward_duration_after_gate = 2.0  # sekuntia
 
-        self.forward_timer = None
-
-        # QoS
         qos_profile = QoSProfile(depth=10)
         qos_profile.reliability = ReliabilityPolicy.BEST_EFFORT
 
-        # Tilaukset ja julkaisijat
         self.subscription = self.create_subscription(
             Point,
             '/goal_position',
@@ -37,17 +32,19 @@ class CenterAlignmentNode(Node):
 
         self.cmd_vel_pub = self.create_publisher(Twist, '/drone1/cmd_vel', 10)
 
+        self.gate_lost = False
+
     def goal_position_callback(self, msg: Point):
         if msg.x == -1 and msg.y == -1:
-            self.get_logger().info("Green gate lost — flying forward based on speed/distance.")
-            self.start_forward_timer()
+            self.get_logger().info("Gate lost, flying forward to clear the gate...")
+            self.fly_forward_for_duration(self.forward_duration_after_gate)
             return
 
+        self.gate_lost = False
         error_x = abs(msg.x - self.center_x)
         error_y = abs(msg.y - self.center_y)
 
         if error_x <= self.tolerance and error_y <= self.tolerance:
-            # Portti on keskellä — liikutaan eteenpäin
             twist = Twist()
             twist.linear.x = self.forward_speed
             self.cmd_vel_pub.publish(twist)
@@ -55,33 +52,18 @@ class CenterAlignmentNode(Node):
         else:
             self.get_logger().info("Not centered yet.")
 
-    def start_forward_timer(self):
-        if self.forward_timer is not None:
-            return  # Älä aloita uutta ajoa jos vanha on käynnissä
-
-        forward_duration = self.k_t / self.forward_speed
-
+    def fly_forward_for_duration(self, duration_seconds):
         twist = Twist()
         twist.linear.x = self.forward_speed
-        self.cmd_vel_pub.publish(twist)
 
-        self.get_logger().info(
-            f"Flying forward at {self.forward_speed:.2f} m/s for {forward_duration:.2f} seconds"
-        )
-
-        self.forward_timer = self.create_timer(
-            forward_duration,
-            self.stop_forward_motion
-        )
-
-    def stop_forward_motion(self):
-        twist = Twist()  # pysäytys
-        self.cmd_vel_pub.publish(twist)
-        self.get_logger().info("Forward duration ended, drone stopped.")
-
-        self.forward_timer.cancel()
-        self.forward_timer = None
-
+        start_time = time.time()
+        while time.time() - start_time < duration_seconds:
+            self.cmd_vel_pub.publish(twist)
+            time.sleep(0.1)  # 10 Hz
+        # Pysäytä liike
+        stop_twist = Twist()
+        self.cmd_vel_pub.publish(stop_twist)
+        self.get_logger().info("Finished forward movement after gate.")
 
 def main(args=None):
     rclpy.init(args=args)
@@ -94,7 +76,6 @@ def main(args=None):
     finally:
         node.destroy_node()
         rclpy.shutdown()
-
 
 if __name__ == '__main__':
     main()
