@@ -14,7 +14,7 @@ class CenterAlignmentNode(Node):
         self.image_width = 960
         self.image_height = 720
         self.center_x = self.image_width / 2
-        self.center_y = self.image_height / 2
+        self.center_y = self.image_height / 2 + 180
         self.tolerance = 20
 
         # Liikeparametrit
