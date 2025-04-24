@@ -24,6 +24,7 @@ setup(
         	'saveimg = cameramask.imagesaver:main',
         	'publishImg = cameramask.imagepublish:main',
             'moveTello = cameramask.gatefollower:main',
+            'fly_to_gate = cameramask.fly_to_gate:main'
         ],
     },
 )
