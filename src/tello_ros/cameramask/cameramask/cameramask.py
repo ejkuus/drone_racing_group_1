@@ -22,7 +22,8 @@ class LineObjective(Node):
         )
 
         self.subscription = self.create_subscription(
-            Image,'/image_raw', self.camera_callback, qos_profile
+            #Image,'/image_raw', self.camera_callback, qos_profile
+            Image,'/image_raw', self.camera_callback, 10
 #             Image,'img_rviz', self.camera_callback, qos_profile
         )
 
