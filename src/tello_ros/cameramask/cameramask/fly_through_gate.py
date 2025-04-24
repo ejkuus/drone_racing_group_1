@@ -26,7 +26,7 @@ class CenterAlignmentNode(Node):
         qos_profile = QoSProfile(depth=10)
         qos_profile.reliability = ReliabilityPolicy.BEST_EFFORT
         self.subscription = self.create_subscription(Point, '/goal_position', self.goal_position_callback, qos_profile)
-        self.cmd_vel_pub = self.create_publisher(Twist, '/drone1/cmd_vel', 10)
+        self.cmd_vel_pub = self.create_publisher(Twist, '/cmd_vel', 10)
 
         # Tilat
         self.forward_timer = None
