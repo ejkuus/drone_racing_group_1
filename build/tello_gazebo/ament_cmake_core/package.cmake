@@ -5,7 +5,7 @@ set(tello_gazebo_BUILD_DEPENDS "gazebo" "gazebo_ros" "geometry_msgs" "rclcpp" "s
 set(tello_gazebo_BUILDTOOL_DEPENDS "ament_cmake")
 set(tello_gazebo_BUILD_EXPORT_DEPENDS "gazebo" "gazebo_ros" "geometry_msgs" "rclcpp" "std_msgs" "tello_msgs")
 set(tello_gazebo_BUILDTOOL_EXPORT_DEPENDS )
-set(tello_gazebo_EXEC_DEPENDS "gazebo_ros_pkgs" "gazebo" "gazebo_ros" "geometry_msgs" "rclcpp" "std_msgs" "tello_msgs")
+set(tello_gazebo_EXEC_DEPENDS "gazebo" "gazebo_ros" "geometry_msgs" "rclcpp" "std_msgs" "tello_msgs")
 set(tello_gazebo_TEST_DEPENDS )
 set(tello_gazebo_GROUP_DEPENDS )
 set(tello_gazebo_MEMBER_OF_GROUPS )

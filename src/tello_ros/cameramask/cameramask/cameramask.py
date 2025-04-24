@@ -22,12 +22,13 @@ class LineObjective(Node):
         )
 
         self.subscription = self.create_subscription(
-            Image,'/image_raw', self.camera_callback, qos_profile
+            #Image,'/image_raw', self.camera_callback, qos_profile
+            Image,'/image_raw', self.camera_callback, 10
 #             Image,'img_rviz', self.camera_callback, qos_profile
         )
 
         self.publisher = self.create_publisher(Point, '/goal_position', 10)
-        self.get_logger().info("GreenShapeDetector node started and listening to /drone1/image_raw")
+        self.get_logger().info("GreenShapeDetector1 node started and listening to /image_raw")
 
 
     def camera_callback(self, data):

@@ -57,6 +57,12 @@ class TelloGateFollower(Node):
     
     def point_blob_callback(self, msg):
         # Proportional control factor
+
+        if msg.x < 0 or msg.y < 0:
+            self.get_logger().info("Negative coordinates received, skipped movement")
+            return
+
+
         k = 0.5
         cx = self.image_width / 2.0
         cy = self.image_height / 2.0
