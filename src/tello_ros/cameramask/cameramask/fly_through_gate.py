@@ -34,6 +34,20 @@ class CenterAlignmentNode(Node):
         self.recovery_step = 0
         self.seeing_gate = False
 
+    def stop_drone(self):
+        twist = Twist()
+
+        twist.linear.x = 0
+        twist.linear.y = 0
+        twist.linear.z = 0
+        twist.angular.x = 0
+        twist.angular.y = 0
+        twist.angular.z = 0
+        self.cmd_vel_pub.publish(twist)
+
+
+
+
     def goal_position_callback(self, msg: Point):
         self.seeing_gate = not (msg.x == -1 and msg.y == -1)
 
@@ -79,27 +93,30 @@ class CenterAlignmentNode(Node):
         if self.recovery_step == 1:
             # Kurkkaa nopeasti vasemmalle (0.9 × FOV)
             angle = 0.9 * self.fov_horizontal  # rad
-            angular_speed = 1.0  # rad/s
+            angular_speed = 0.2  # rad/s
             duration = angle / angular_speed
 
+            self.stop_drone()
             twist.angular.z = angular_speed
             self.cmd_vel_pub.publish(twist)
             self.get_logger().info("Looking left...")
             self.create_timer(duration, self.recovery_behavior)
+            self.stop_drone()
 
         elif self.recovery_step == 2:
             # Käänny oikealle 1.9 × FOV (paljon)
             angle = 1.9 * self.fov_horizontal
-            angular_speed = 1.0
+            angular_speed = 0.2
             duration = angle / angular_speed
-
+            self.stop_drone()
             twist.angular.z = -angular_speed
             self.cmd_vel_pub.publish(twist)
             self.get_logger().info("Looking far right...")
             self.create_timer(duration, self.recovery_behavior)
-
+            self.stop_drone()
         else:
             # Pyöri hitaasti oikealle kunnes portti löytyy
+            self.stop_drone()
             twist.angular.z = -0.3
             self.cmd_vel_pub.publish(twist)
             self.get_logger().info("Spinning slowly to find next gate")
