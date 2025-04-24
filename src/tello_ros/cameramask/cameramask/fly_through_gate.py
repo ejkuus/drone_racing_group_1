@@ -48,12 +48,13 @@ class CenterAlignmentNode(Node):
 
     def goal_position_callback(self, msg: Point):
         self.seeing_gate = not (msg.x == -1 and msg.y == -1)
-
+        temp_error = 2
         if self.seeing_gate:
             self.get_logger().info("Gate visible")
 
             error_x = abs(msg.x - self.center_x)
             error_y = abs(msg.y - self.center_y)
+            temp_error = 0
 
             if error_x <= self.tolerance and error_y <= self.tolerance:
                 twist = Twist()
@@ -61,13 +62,18 @@ class CenterAlignmentNode(Node):
                 self.cmd_vel_pub.publish(twist)
                 self.get_logger().info("Gate centered — moving forward")
         else:
-            self.get_logger().info("Gate not visible — starting forward + recovery logic")
-            self.start_forward_timer()
+            if temp_error == 0:
+                self.get_logger().info("Gate not visible — starting forward")
+                self.start_forward_timer()
+                temp_error = 1
+            else:
+                self.get_logger().info("Gate not visible — starting search")
+                self.recovery_behavior()
 
     def start_forward_timer(self):
         if self.forward_timer is not None:
             return
-
+        self.stop_drone()
         forward_duration = self.k_t / self.forward_speed
         twist = Twist()
         twist.linear.x = self.forward_speed
