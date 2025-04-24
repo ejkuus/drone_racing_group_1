@@ -37,12 +37,12 @@ class CenterAlignmentNode(Node):
     def stop_drone(self):
         twist = Twist()
 
-        twist.linear.x = 0
-        twist.linear.y = 0
-        twist.linear.z = 0
-        twist.angular.x = 0
-        twist.angular.y = 0
-        twist.angular.z = 0
+        twist.linear.x = 0.0
+        twist.linear.y = 0.0
+        twist.linear.z = 0.0
+        twist.angular.x = 0.0
+        twist.angular.y = 0.0
+        twist.angular.z = 0.0
         self.cmd_vel_pub.publish(twist)
 
 
@@ -93,7 +93,7 @@ class CenterAlignmentNode(Node):
         if self.recovery_step == 1:
             # Kurkkaa nopeasti vasemmalle (0.9 × FOV)
             angle = 0.9 * self.fov_horizontal  # rad
-            angular_speed = 0.2  # rad/s
+            angular_speed = 0.1  # rad/s
             duration = angle / angular_speed
 
             self.stop_drone()
@@ -106,7 +106,7 @@ class CenterAlignmentNode(Node):
         elif self.recovery_step == 2:
             # Käänny oikealle 1.9 × FOV (paljon)
             angle = 1.9 * self.fov_horizontal
-            angular_speed = 0.2
+            angular_speed = 0.1
             duration = angle / angular_speed
             self.stop_drone()
             twist.angular.z = -angular_speed
