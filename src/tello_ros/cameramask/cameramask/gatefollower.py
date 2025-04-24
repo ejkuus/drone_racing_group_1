@@ -18,7 +18,7 @@ class TelloGateFollower(Node):
         self.image_width = 960
         self.image_height = 720
         self.twist_obj = Twist()
-        self.pub_mira_move = self.create_publisher(Twist, '/drone1/cmd_vel', 1)
+        self.pub_mira_move = self.create_publisher(Twist, '/cmd_vel', 1)
 
         self.create_subscription(Point, '/goal_position', self.point_blob_callback, qos_profile)
 
@@ -27,7 +27,7 @@ class TelloGateFollower(Node):
             self.get_logger().info("Negative coordinates received, skipping movement.")
             return
 
-        k = 0.5
+        k = 5
         cx = self.image_width / 2.0
         cy = self.image_height / 2.0
 
