@@ -31,6 +31,7 @@ class CenterAlignmentNode(Node):
 
         # Tilat
         self.forward_timer = None
+        self.recovery_timer = None
         self.recovery_step = 0
         self.seeing_gate = False
 
@@ -44,9 +45,6 @@ class CenterAlignmentNode(Node):
         twist.angular.y = 0.0
         twist.angular.z = 0.0
         self.cmd_vel_pub.publish(twist)
-
-
-
 
     def goal_position_callback(self, msg: Point):
         self.seeing_gate = not (msg.x == -1 and msg.y == -1)
@@ -77,11 +75,17 @@ class CenterAlignmentNode(Node):
 
         self.get_logger().info(f"Flying forward at {self.forward_speed:.2f} m/s for {forward_duration:.2f} sec")
 
-        self.forward_timer = self.create_timer(forward_duration, self.recovery_behavior)
+        self.forward_timer = self.create_timer(forward_duration, self.forward_timer_callback)
 
-    def recovery_behavior(self):
+    def forward_timer_callback(self):
         self.forward_timer.cancel()
         self.forward_timer = None
+        self.recovery_behavior()
+
+    def recovery_behavior(self):
+        if self.recovery_timer is not None:
+            self.recovery_timer.cancel()
+            self.recovery_timer = None
 
         if self.seeing_gate:
             self.get_logger().info("Gate found, no recovery needed.")
@@ -100,20 +104,20 @@ class CenterAlignmentNode(Node):
             twist.angular.z = angular_speed
             self.cmd_vel_pub.publish(twist)
             self.get_logger().info("Looking left...")
-            self.create_timer(duration, self.recovery_behavior)
-            self.stop_drone()
+            self.recovery_timer = self.create_timer(duration, self.recovery_behavior)
 
         elif self.recovery_step == 2:
             # Käänny oikealle 1.9 × FOV (paljon)
             angle = 1.9 * self.fov_horizontal
             angular_speed = 0.1
             duration = angle / angular_speed
+
             self.stop_drone()
             twist.angular.z = -angular_speed
             self.cmd_vel_pub.publish(twist)
             self.get_logger().info("Looking far right...")
-            self.create_timer(duration, self.recovery_behavior)
-            self.stop_drone()
+            self.recovery_timer = self.create_timer(duration, self.recovery_behavior)
+
         else:
             # Pyöri hitaasti oikealle kunnes portti löytyy
             self.stop_drone()
