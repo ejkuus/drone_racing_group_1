@@ -48,7 +48,6 @@ class CenterAlignmentNode(Node):
 
     def goal_position_callback(self, msg: Point):
         self.seeing_gate = not (msg.x == -1 and msg.y == -1)
-        temp_error = 2
         if self.seeing_gate:
             self.get_logger().info("Gate visible")
 
