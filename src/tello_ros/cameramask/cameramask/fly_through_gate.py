@@ -17,7 +17,8 @@ class CenterAlignmentNode(Node):
         self.center_x = self.image_width / 2
         self.center_y = self.image_height / 2
         self.tolerance = 20
-
+        temp_error = None
+        recover_step = None
         # Liikeparametrit
         self.forward_speed = 0.1
         self.k_t = 0.6
@@ -47,6 +48,7 @@ class CenterAlignmentNode(Node):
         self.cmd_vel_pub.publish(twist)
 
     def goal_position_callback(self, msg: Point):
+        global temp_error
         self.seeing_gate = not (msg.x == -1 and msg.y == -1)
         if self.seeing_gate:
             self.get_logger().info("Gate visible")
@@ -54,6 +56,7 @@ class CenterAlignmentNode(Node):
             error_x = abs(msg.x - self.center_x)
             error_y = abs(msg.y - self.center_y)
             temp_error = 0
+            
 
             if error_x <= self.tolerance and error_y <= self.tolerance:
                 twist = Twist()
@@ -62,7 +65,7 @@ class CenterAlignmentNode(Node):
                 self.get_logger().info("Gate centered — moving forward")
         else:
             if temp_error == 0:
-                self.get_logger().info("Gate not visible — starting forward")
+                self.get_logger().info("Gate not visible — starting forward motion to fly through")
                 self.start_forward_timer()
                 temp_error = 1
             else:
@@ -95,37 +98,8 @@ class CenterAlignmentNode(Node):
         if self.seeing_gate:
             self.get_logger().info("Gate found, no recovery needed.")
             return
-
-        self.recovery_step += 1
-        twist = Twist()
-
-        if self.recovery_step == 1:
-            # Kurkkaa nopeasti vasemmalle (0.9 × FOV)
-            angle = 0.9 * self.fov_horizontal  # rad
-            angular_speed = 0.1  # rad/s
-            duration = angle / angular_speed
-
-            self.stop_drone()
-            twist.angular.z = angular_speed
-            self.cmd_vel_pub.publish(twist)
-            self.get_logger().info("Looking left...")
-            self.recovery_timer = self.create_timer(duration, self.recovery_behavior)
-
-        elif self.recovery_step == 2:
-            # Käänny oikealle 1.9 × FOV (paljon)
-            angle = 1.9 * self.fov_horizontal
-            angular_speed = 0.1
-            duration = angle / angular_speed
-
-            self.stop_drone()
-            twist.angular.z = -angular_speed
-            self.cmd_vel_pub.publish(twist)
-            self.get_logger().info("Looking far right...")
-            self.recovery_timer = self.create_timer(duration, self.recovery_behavior)
-
         else:
-            # Pyöri hitaasti oikealle kunnes portti löytyy
-            self.stop_drone()
+            twist = Twist()
             twist.angular.z = -0.3
             self.cmd_vel_pub.publish(twist)
             self.get_logger().info("Spinning slowly to find next gate")
