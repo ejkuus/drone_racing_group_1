@@ -152,15 +152,15 @@ class LineObjective(Node):
 
 
         # Detect red stop sign
-        lower_red1 = np.array([0, 70, 50])
-        upper_red1 = np.array([10, 255, 255])
-        lower_red2 = np.array([170, 70, 50])
-        upper_red2 = np.array([180, 255, 255])
+        lower_red1 = np.array([170,220,220])
+        upper_red1 = np.array([180,255,255])
+        #lower_red2 = np.array([170, 70, 50])
+        #upper_red2 = np.array([180, 255, 255])
 
         # Two ranges because red wraps around HSV
         red_mask1 = cv2.inRange(cv_image, lower_red1, upper_red1)
-        red_mask2 = cv2.inRange(cv_image, lower_red2, upper_red2)
-        red_mask = red_mask1 | red_mask2
+        #red_mask2 = cv2.inRange(cv_image, lower_red2, upper_red2)
+        red_mask = red_mask1 #| red_mask2
 
         # Find contours for red
         red_contours, _ = cv2.findContours(red_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -188,6 +188,7 @@ class LineObjective(Node):
                 return  # Exit the callback immediately so it doesn't continue doing green/Aruco detection  
             
         cv2.imshow("Original", cv_image)
+	cv2.imshow("Red Mask", red_mask)
         #cv2.imshow("Green Only", green_only)
         cv2.waitKey(1)
         # Show both original and masked image
