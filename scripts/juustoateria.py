@@ -15,8 +15,8 @@ class CenterAlignmentNode(Node):
         self.image_width = 960
         self.image_height = 720
         self.center_x = self.image_width / 2
-        self.center_y = self.image_height / 2 - 180
-        self.tolerance = 50
+        self.center_y = self.image_height / 2 - 150
+        self.tolerance = 80
 
         # Liikeparametrit
         self.forward_speed = 0.3
@@ -42,9 +42,12 @@ class CenterAlignmentNode(Node):
 
     def cmd_vel_timer_callback(self):
         self.cmd_vel_pub.publish(self.current_twist)
+        
+    def stop_forward(self):
+        self.current_twist.linear.x = 0.0
+        #self.current_twist = Twist()
+        self.cmd_vel_pub.publish(self.current_twist)
 
-    #def stop_drone(self):
-      #  self.current_twist = Twist()
 
     def goal_position_callback(self, msg: Point):
         self.seeing_gate = not (msg.x == -1 and msg.y == -1)
@@ -62,7 +65,7 @@ class CenterAlignmentNode(Node):
                 self.get_logger().info("Gate centered — moving forward")
                 self.cmd_vel_pub.publish(self.current_twist)
             #else:
-                #self.stop_drone()
+                #self.stop_forward()
 
         else:
             if self.temp_error == 0:
@@ -77,8 +80,8 @@ class CenterAlignmentNode(Node):
         if self.forward_timer is not None:
             return
 
-        #self.stop_drone()
-        forward_duration = self.k_t / self.forward_speed
+        self.stop_forward()
+        forward_duration = 0.6
 
         twist = Twist()
         twist.linear.x = self.forward_speed
@@ -93,8 +96,8 @@ class CenterAlignmentNode(Node):
             self.forward_timer.cancel()
             self.forward_timer = None
 
-        #self.stop_drone()
-        #self.recovery_behavior()
+        #self.stop_forward()
+        self.recovery_behavior()
 
     def recovery_behavior(self):
         if self.recovery_timer is not None:
@@ -136,10 +139,8 @@ class CenterAlignmentNode(Node):
     #    if self.recovery_timer is not None:
     #        self.recovery_timer.cancel()
     #        self.recovery_timer = None
-    #    self.stop_drone()
+    #    self.stop_forward()
 
-    def stop_motion(self):
-        self.stop_drone()
 
 
 def main(args=None):
@@ -151,7 +152,7 @@ def main(args=None):
     except KeyboardInterrupt:
         pass
     finally:
-        node.stop_motion()
+        node.stop_forward()
         node.destroy_node()
         rclpy.shutdown()
 
