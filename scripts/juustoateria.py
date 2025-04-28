@@ -19,7 +19,7 @@ class CenterAlignmentNode(Node):
         self.tolerance = 50
 
         # Liikeparametrit
-        self.forward_speed = 0.1
+        self.forward_speed = 0.3
         self.k_t = 0.6
         self.fov_horizontal = math.radians(69.4)
 
@@ -43,8 +43,8 @@ class CenterAlignmentNode(Node):
     def cmd_vel_timer_callback(self):
         self.cmd_vel_pub.publish(self.current_twist)
 
-    def stop_drone(self):
-        self.current_twist = Twist()
+    #def stop_drone(self):
+      #  self.current_twist = Twist()
 
     def goal_position_callback(self, msg: Point):
         self.seeing_gate = not (msg.x == -1 and msg.y == -1)
@@ -61,8 +61,8 @@ class CenterAlignmentNode(Node):
                 self.current_twist = twist
                 self.get_logger().info("Gate centered — moving forward")
                 self.cmd_vel_pub.publish(self.current_twist)
-            else:
-                self.stop_drone()
+            #else:
+                #self.stop_drone()
 
         else:
             if self.temp_error == 0:
@@ -77,7 +77,7 @@ class CenterAlignmentNode(Node):
         if self.forward_timer is not None:
             return
 
-        self.stop_drone()
+        #self.stop_drone()
         forward_duration = self.k_t / self.forward_speed
 
         twist = Twist()
@@ -93,8 +93,8 @@ class CenterAlignmentNode(Node):
             self.forward_timer.cancel()
             self.forward_timer = None
 
-        self.stop_drone()
-        self.recovery_behavior()
+        #self.stop_drone()
+        #self.recovery_behavior()
 
     def recovery_behavior(self):
         if self.recovery_timer is not None:
@@ -132,11 +132,11 @@ class CenterAlignmentNode(Node):
         self.get_logger().info(f"Rotating {direction} for {duration:.2f} sec")
         self.recovery_timer = self.create_timer(duration, self.stop_after_rotation)
 
-    def stop_after_rotation(self):
-        if self.recovery_timer is not None:
-            self.recovery_timer.cancel()
-            self.recovery_timer = None
-        self.stop_drone()
+    #def stop_after_rotation(self):
+    #    if self.recovery_timer is not None:
+    #        self.recovery_timer.cancel()
+    #        self.recovery_timer = None
+    #    self.stop_drone()
 
     def stop_motion(self):
         self.stop_drone()
