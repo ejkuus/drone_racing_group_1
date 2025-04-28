@@ -27,12 +27,13 @@ class LineObjective(Node):
         self.parameters = aruco.DetectorParameters_create()
 
         self.subscription = self.create_subscription(
-            Image,'/drone1/image_raw', self.camera_callback, qos_profile
+		Image,'/image_raw', self.camera_callback, 10
+#            Image,'/drone1/image_raw', self.camera_callback, qos_profile
 #             Image,'img_rviz', self.camera_callback, qos_profile
         )
 
         self.publisher = self.create_publisher(Point, '/goal_position', 10)
-        self.get_logger().info("GreenShapeDetector node started and listening to /drone1/image_raw")
+        self.get_logger().info("GreenShapeDetector node started and listening to /image_raw")
         self.no_detection_counter = 0
         self.stop_detected = False 
 
