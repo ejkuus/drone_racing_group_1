@@ -24,6 +24,7 @@ if (_dump_all_variables)
   endforeach ()
 endif ()
 
+
 # Find packages
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
