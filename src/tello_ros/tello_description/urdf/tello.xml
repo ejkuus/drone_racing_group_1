@@ -3,7 +3,7 @@
 <!-- Body coordinates are: x forward, y left, z up; rotation is: roll right, pitch forward, yaw left -->
 <!-- See http://www.ros.org/reps/rep-0103.html -->
 
-<robot name="tello${suffix}">
+<robot name="tello${suffix}"> 
 
     <!-- Materials -->
     <material name="gray">
