@@ -1,0 +1,8 @@
+source;share/dronerace/hook/cmake_prefix_path.ps1
+source;share/dronerace/hook/cmake_prefix_path.dsv
+source;share/dronerace/hook/cmake_prefix_path.sh
+source;share/dronerace/local_setup.bash
+source;share/dronerace/local_setup.dsv
+source;share/dronerace/local_setup.ps1
+source;share/dronerace/local_setup.sh
+source;share/dronerace/local_setup.zsh
