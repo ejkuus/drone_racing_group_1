@@ -27,3 +27,4 @@ WORKDIR /work/tello_ros_ws
 RUN rosdep install -y --from-paths . --ignore-src
 
 RUN /bin/bash -c "source /opt/ros/foxy/setup.bash && colcon build"
+
