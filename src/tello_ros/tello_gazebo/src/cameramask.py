@@ -9,6 +9,7 @@ from std_msgs.msg import String
 # from move_robot import MoveKobuki
 
 
+
 class LineObjective(object):
 
     def __init__(self):
