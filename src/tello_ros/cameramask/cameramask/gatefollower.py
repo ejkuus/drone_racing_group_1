@@ -29,7 +29,7 @@ class TelloGateFollower(Node):
 
         k = 5
         cx = self.image_width / 2.0
-        cy = self.image_height / 2.0
+        cy = self.image_height / 2.0 + 160
 
         norm_x = (msg.x - cx) / cx
         norm_y = (cy - msg.y) / cy
