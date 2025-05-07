@@ -48,3 +48,4 @@ def generate_launch_description():
         Node(package='tello_driver', node_executable='tello_driver_main', node_name='dr2', node_namespace='dr2',
              parameters=dr2_params, output='screen'),
     ])
+
